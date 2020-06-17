@@ -6,7 +6,7 @@
         "DataPartName" : {
           "Description": "the data part name as appear in the cloudformation stack name",
           "Type": "String",
-          "Default" : "mydataname"
+          "Default" : "eks-kritika"
         }
   },
   "Resources" : {
@@ -63,7 +63,7 @@
             ]
           },
           "Source": {
-            "Location": "https://github.com/giuseppeborgese/run-terraform-inside-aws-codebuild",
+            "Location": "https://github.com/05kritika/eks-automation.git",
             "Type": "GITHUB"
           },
           "TimeoutInMinutes": 10,
