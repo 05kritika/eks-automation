@@ -45,7 +45,7 @@ phases:
       - echo "Prepare terraform file"
       - cd eks-terraform 
       - pwd
-      #- terraform init
+      - terraform init
       #- terraform plan
       #- terraform apply
       
