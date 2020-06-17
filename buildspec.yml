@@ -8,6 +8,29 @@ version: 0.2
 phases:
   install:
     commands:
+      
+      - "apt update"
+      - "apt install -y awscli git python3"
+      
+     # - "pip install kubernetes"
+     # - "wget https://github.com/kubernetes/kops/releases/download/1.8.0/kops-linux-amd64"
+     # - "chmod +x kops-linux-amd64"
+     # - "mv kops-linux-amd64 /usr/local/bin/kops"
+      
+      - "curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+      - "chmod +x kubectl"
+      - "mv ./kubectl /usr/local/bin/kubectl"
+      - "kubectl version"
+      
+      - "curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3"
+	    - "chmod 700 get_helm.sh"
+	    - "./get_helm.sh"
+	    - "helm version"
+
+     # - "wget https://storage.googleapis.com/kubernetes-helm/helm-v2.8.2-linux-amd64.tar.gz -O helm.tar.gz; tar -xzf helm.tar.gz"
+     # - "chmod +x ./linux-amd64/helm"
+     # - "mv ./linux-amd64/helm /usr/local/bin/helm"
+       
       - sudo pip install boto3
       - wget https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip
       #- wget https://releases.hashicorp.com/terraform/0.10.4/terraform_0.10.4_linux_amd64.zip
@@ -31,3 +54,5 @@ phases:
   post_build:
     commands:
       - echo "Nothing to do in the post_build for now"
+      - aws eks --region us-east-2 update-kubeconfig --name $(terraform output cluster_name)
+      - kubectl get nodes
