@@ -17,6 +17,7 @@ mycommands = ["terraform"]
 
 if destroy == "True":
     mycommands.extend(["destroy","--force"])
+    exit
 else:
     mycommands.extend(["apply","-auto-approve"])
 
