@@ -8,6 +8,15 @@ provider "aws" {
   region  = "us-east-2"
 }
 
+variable "prefix" {
+    default = "pepapp1"
+    description = "The prefix used to build the elements"
+}
+
+variable "profile" {
+  default = "default"
+}
+
 data "aws_availability_zones" "available" {}
 
 locals {
