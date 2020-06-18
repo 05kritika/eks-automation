@@ -63,6 +63,7 @@ phases:
   post_build:
     commands:
       - echo "Nothing to do in the post_build for now"
+      - aws sts assume-role --role-arn "arn:aws:iam::847370586410:role/assume-admin-role" --role-session-name AWSCLI-Session
       - aws sts get-caller-identity
       
       - . /tmp/aws_cred_export.txt && aws eks --region us-east-1 update-kubeconfig --name $(terraform output cluster_name) --role-arn arn:aws:iam::847370586410:role/assume-admin-role
