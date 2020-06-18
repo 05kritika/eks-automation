@@ -9,7 +9,7 @@ phases:
   install:
     commands:
       
-     # - "apt update"
+      - "apt update"
      # - "apt install -y awscli git python3"
       - "apt install -y awscli"
       - "which aws"
