@@ -3,6 +3,15 @@ variable "region" {
   description = "AWS region"
 }
 
+variable "prefix" {
+    default = "pepapp1"
+    description = "The prefix used to build the elements"
+}
+
+variable "profile" {
+  default = "default"
+}
+
 provider "aws" {
   version = ">= 2.28.1"
   region  = "us-east-1"
