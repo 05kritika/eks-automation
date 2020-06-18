@@ -11,7 +11,7 @@ phases:
       
       - "apt update"
       - "apt install -y awscli git python3"
-      #- "apt install -y awscli"
+     # - "apt install -y awscli"
       - "which aws"
       - "aws --version"
       - "curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.16.8/2020-04-16/bin/linux/amd64/aws-iam-authenticator"
@@ -61,7 +61,7 @@ phases:
       
       
       - . /tmp/aws_cred_export.txt && terraform init
-      - terraform plan 
+      #- terraform plan 
       
   build:
     commands:
@@ -73,24 +73,24 @@ phases:
     commands:
       - echo "Nothing to do in the post_build for now"
      # - aws sts assume-role --role-arn "arn:aws:iam::847370586410:role/assume-admin-role" --role-session-name AWSCLI-Session
-      - aws sts get-caller-identity
+     # - aws sts get-caller-identity
       
-      - . /tmp/aws_cred_export.txt && aws eks --region us-east-1 update-kubeconfig --name $(terraform output cluster_name)
-      - kubectl version
-      - kubectl get nodes
+     # - . /tmp/aws_cred_export.txt && aws eks --region us-east-1 update-kubeconfig --name $(terraform output cluster_name)
+     # - kubectl version
+     # - kubectl get nodes
      
-      - helm repo add stable https://kubernetes-charts.storage.googleapis.com
-      - helm repo update
-      - helm install my-jenkins -f jenkins-values.yaml stable/jenkins --set 'service.type=LoadBalancer'
-      - helm ls
+     # - helm repo add stable https://kubernetes-charts.storage.googleapis.com
+     # - helm repo update
+     # - helm install my-jenkins -f jenkins-values.yaml stable/jenkins --set 'service.type=LoadBalancer'
+     # - helm ls
       
-      - sleep 60
+     # - sleep 60
       
-      - kubectl get pods
-      - kubectl get svc
-      - printf $(kubectl get secret --namespace default my-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+     # - kubectl get pods
+     # - kubectl get svc
+     # - printf $(kubectl get secret --namespace default my-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
       
-      - sleep 30
+     # - sleep 30
       
       #- helm repo add bitnami https://charts.bitnami.com/bitnami
       #- helm install my-tomcat bitnami/tomcat
@@ -98,7 +98,7 @@ phases:
       
       #- sleep 30
       
-      - kubectl get pods
-      - kubectl get svc
+     # - kubectl get pods
+     # - kubectl get svc
       
       
