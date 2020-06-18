@@ -20,8 +20,8 @@ if destroy == "True":
 else:
     mycommands.extend(["apply","-auto-approve"])
 
-#mycommands.extend([ "-var", "region="+myregion , "-var", "prefix="+prefix])
-mycommands.extend([ "-var", "region="+myregion])
+mycommands.extend([ "-var", "region="+myregion , "-var", "prefix="+prefix])
+#mycommands.extend([ "-var", "region="+myregion])
 
 print mycommands
 call(mycommands)
