@@ -11,7 +11,7 @@ if len(sys.argv) != 5:
 
 myregion = sys.argv[1]
 prefix = sys.argv[2]
-apply = sys.argv[3]
+#apply = sys.argv[3]
 destroy = sys.argv[4]
 
 mycommands = ["terraform"]
@@ -19,8 +19,8 @@ mycommands = ["terraform"]
 if destroy == "True":
     mycommands.extend(["destroy","--force"])
   #  exit
-else 
-    mycommands.extend(["apply","-auto-approve"])
+#else 
+#    mycommands.extend(["apply","-auto-approve"])
 elif apply=="True":
     mycommands.extend(["apply","-auto-approve"])
 else
