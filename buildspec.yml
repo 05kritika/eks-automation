@@ -60,7 +60,7 @@ phases:
       #- terraform apply
       
       
-     # - . /tmp/aws_cred_export.txt && terraform init
+      - . /tmp/aws_cred_export.txt && terraform init
      # - terraform plan 
       
   build:
