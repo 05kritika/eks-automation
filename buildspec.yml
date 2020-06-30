@@ -27,15 +27,15 @@ phases:
      # - "chmod +x kops-linux-amd64"
      # - "mv kops-linux-amd64 /usr/local/bin/kops"
       
-      - "curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
-      - "chmod +x kubectl"
-      - "mv ./kubectl /usr/local/bin/kubectl"
+      #- "curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+      #- "chmod +x kubectl"
+      #- "mv ./kubectl /usr/local/bin/kubectl"
       #- "kubectl version"
       
-      - "curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3"
-      - "chmod 700 get_helm.sh"
-      - "./get_helm.sh"
-      - "helm version"
+      #- "curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3"
+      #- "chmod 700 get_helm.sh"
+      #- "./get_helm.sh"
+      #- "helm version"
 
      # - "wget https://storage.googleapis.com/kubernetes-helm/helm-v2.8.2-linux-amd64.tar.gz -O helm.tar.gz; tar -xzf helm.tar.gz"
      # - "chmod +x ./linux-amd64/helm"
@@ -60,8 +60,8 @@ phases:
       #- terraform apply
       
       
-      - . /tmp/aws_cred_export.txt && terraform init
-      - terraform plan 
+     # - . /tmp/aws_cred_export.txt && terraform init
+     # - terraform plan 
       
   build:
     commands:
@@ -75,30 +75,30 @@ phases:
      # - aws sts assume-role --role-arn "arn:aws:iam::847370586410:role/assume-admin-role" --role-session-name AWSCLI-Session
      # - aws sts get-caller-identity
       
-      - . /tmp/aws_cred_export.txt && aws eks --region us-east-1 update-kubeconfig --name $(terraform output cluster_name)
-      - kubectl version
-      - kubectl get nodes
+     # - . /tmp/aws_cred_export.txt && aws eks --region us-east-1 update-kubeconfig --name $(terraform output cluster_name)
+     # - kubectl version
+     # - kubectl get nodes
      
-      - helm repo add stable https://kubernetes-charts.storage.googleapis.com
-      - helm repo update
-      - helm install my-jenkins -f jenkins-values.yaml stable/jenkins --set 'service.type=LoadBalancer'
-      - helm ls
+     # - helm repo add stable https://kubernetes-charts.storage.googleapis.com
+     # - helm repo update
+     # - helm install my-jenkins -f jenkins-values.yaml stable/jenkins --set 'service.type=LoadBalancer'
+     # - helm ls
       
-      - sleep 60
+     # - sleep 60
       
-      - kubectl get pods
-      - kubectl get svc
-      - printf $(kubectl get secret --namespace default my-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+     # - kubectl get pods
+     # - kubectl get svc
+     # - printf $(kubectl get secret --namespace default my-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
       
-      - sleep 30
+     # - sleep 30
       
       #- helm repo add bitnami https://charts.bitnami.com/bitnami
       #- helm install my-tomcat bitnami/tomcat
       #- helm ls
       
-      - sleep 30
+     # - sleep 30
       
-      - kubectl get pods
-      - kubectl get svc
+     # - kubectl get pods
+     # - kubectl get svc
       
       
