@@ -315,7 +315,7 @@ datasources: {}
     datasources:
     - name: Prometheus
       type: prometheus
-      url: http://PROMETHEUS_IP:80
+      url: http://PROMETHEUS_LB:80
       access: proxy
       isDefault: true
 
