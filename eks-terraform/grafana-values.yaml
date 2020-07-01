@@ -342,7 +342,7 @@ notifiers: {}
 ##
 ## `path` must be /var/lib/grafana/dashboards/<provider_name>
 ##
-dashboardProviders: {}
+dashboardProviders: 
   dashboardproviders.yaml:
     apiVersion: 1
     providers:
