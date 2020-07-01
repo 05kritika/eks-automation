@@ -377,9 +377,9 @@ dashboardProviders: {}
   #   local-dashboard-base64:
   #     url: https://example.com/repository/test-b64.json
   #     b64content: true
-  
-  dashboards:
-    default:
+
+dashboards:
+  default:
     #some-dashboard:
     #  json: |
     #    {
@@ -393,14 +393,14 @@ dashboardProviders: {}
     #      "uid": "abcd1234",
     #      "version": 1
     #    }
-      custom-dashboard:
+    custom-dashboard:
       # This is a path to a file inside the dashboards directory inside the chart directory
-        file: dashboards/kubernetes-cluster-monitoring-via-prometheus_rev1.json
-      prometheus-stats:
+      file: dashboards/kubernetes-cluster-monitoring-via-prometheus_rev1.json
+    prometheus-stats:
       # Ref: https://grafana.com/dashboards/2
-        gnetId: 2
-        revision: 2
-        datasource: Prometheus
+      gnetId: 2
+      revision: 2
+      datasource: Prometheus
   #  local-dashboard:
 
 ## Reference to external ConfigMap per provider. Use provider name as key and ConfiMap name as value.
