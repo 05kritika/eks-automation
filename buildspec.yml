@@ -136,17 +136,17 @@ phases:
      # - kubectl get pods --namespace monitoring
      # - kubectl get svc --namespace monitoring
       
-     # - sed -i.bak 's/PROMETHEUS_LB/'$PROMETHEUS_LB'/' grafana-values.yaml | helm install -f grafana-values.yaml grafana stable/grafana --namespace monitoring
+      - sed -i.bak 's/PROMETHEUS_LB/'$PROMETHEUS_LB'/' grafana-values.yaml | helm install -f grafana-values.yaml grafana stable/grafana --namespace monitoring
       
-     # - helm ls --namespace monitoring
+      - helm ls --namespace monitoring
       
-     # - kubectl get pods --namespace monitoring
-     # - kubectl get svc --namespace monitoring
+      - kubectl get pods --namespace monitoring
+      - kubectl get svc --namespace monitoring
       
-     # - sleep 60
+      - sleep 60
       
-   #  - kubectl get pods --namespace monitoring
-   #   - kubectl get svc --namespace monitoring
+      - kubectl get pods --namespace monitoring
+      - kubectl get svc --namespace monitoring
       
      # - sleep 30
       
