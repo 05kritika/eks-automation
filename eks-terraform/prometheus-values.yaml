@@ -1060,7 +1060,7 @@ pushgateway:
     loadBalancerIP: ""
     loadBalancerSourceRanges: []
     servicePort: 9091
-    type: LoadBalancer
+    type: ClusterIP
 
   ## pushgateway Deployment Strategy type
   # strategy:
