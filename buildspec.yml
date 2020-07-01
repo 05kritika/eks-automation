@@ -32,10 +32,10 @@ phases:
      # - "mv ./kubectl /usr/local/bin/kubectl"
       #- "kubectl version"
       
-      - "curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3"
-      - "chmod 700 get_helm.sh"
-      - "./get_helm.sh"
-      - "helm version"
+    #  - "curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3"
+    #  - "chmod 700 get_helm.sh"
+    #  - "./get_helm.sh"
+    #  - "helm version"
 
      # - "wget https://storage.googleapis.com/kubernetes-helm/helm-v2.8.2-linux-amd64.tar.gz -O helm.tar.gz; tar -xzf helm.tar.gz"
      # - "chmod +x ./linux-amd64/helm"
@@ -58,13 +58,6 @@ phases:
       #- terraform init
       #- terraform plan
       #- terraform apply
-     
-      - helm ls --namespace monitoring
-      - helm ls
-      
-      - helm delete jenkins
-      - helm delete prometheus --namespace monitoring
-      #- kubectl delete namespace monitoring
       
       - . /tmp/aws_cred_export.txt && terraform init
      # - terraform plan 
@@ -124,15 +117,15 @@ phases:
      # - kubectl get pods --namespace monitoring
      # - kubectl get svc --namespace monitoring
       
-     # - PROMETHEUS_IP=$(kubectl get svc prometheus-server --namespace=monitoring -o jsonpath='{..ip}')
-     # - echo $PROMETHEUS_IP
+     # - PROMETHEUS_LB=$(kubectl get svc --namespace monitoring prometheus-server -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+     # - echo $PROMETHEUS_LB
       
       #- sleep 60
       
       #- kubectl get pods --namespace monitoring
       #- kubectl get svc --namespace monitoring
       
-      #- sed -i.bak 's/PROMETHEUS_IP/'$PROMETHEUS_IP'/' grafana-values.yaml | helm install -f grafana-values.yaml grafana stable/grafana --namespace monitoring
+      #- sed -i.bak 's/PROMETHEUS_LB/'$PROMETHEUS_LB'/' grafana-values.yaml | helm install -f grafana-values.yaml grafana stable/grafana --namespace monitoring
       
       #- helm ls --namespace monitoring
       
