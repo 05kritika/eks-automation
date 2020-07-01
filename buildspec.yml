@@ -83,44 +83,44 @@ phases:
      
       - helm repo add stable https://kubernetes-charts.storage.googleapis.com
       - helm repo update
-      - helm install my-jenkins -f jenkins-values.yaml stable/jenkins --set 'service.type=LoadBalancer'
-      - helm ls
+      #- helm install my-jenkins -f jenkins-values.yaml stable/jenkins --set 'service.type=LoadBalancer'
+      #- helm ls
       
-      - sleep 60
+      #- sleep 60
       
-      - kubectl get pods
-      - kubectl get svc
-      - printf $(kubectl get secret --namespace default my-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+      #- kubectl get pods
+      #- kubectl get svc
+      #- printf $(kubectl get secret --namespace default my-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
       
-      - sleep 30
+      #- sleep 30
       
       #- helm repo add bitnami https://charts.bitnami.com/bitnami
       #- helm install my-tomcat bitnami/tomcat
       #- helm ls
       
-      - sleep 30
+      #- sleep 30
       
     #  - kubectl get pods
     #  - kubectl get svc
      
-      - kubectl create namespace monitoring
-      - helm install -f prometheus-values.yaml prometheus stable/prometheus --namespace monitoring
-      - helm ls --namespace monitoring
+      #- kubectl create namespace monitoring
+      #- helm install -f prometheus-values.yaml prometheus stable/prometheus --namespace monitoring
+      #- helm ls --namespace monitoring
       
-      - kubectl get pods --namespace monitoring
-      - kubectl get svc --namespace monitoring
+      #- kubectl get pods --namespace monitoring
+      #- kubectl get svc --namespace monitoring
       
-      - sleep 60
+      #- sleep 60
      
      # - kubectl get pods --namespace monitoring
      # - kubectl get svc --namespace monitoring
       
-      - sleep 30
+      #- sleep 30
       
     #  - kubectl get pods --namespace monitoring
     #  - kubectl get svc --namespace monitoring
       
-      - sleep 60 
+     # - sleep 60 
       - export SERVICE_IP=$(kubectl get svc --namespace default my-jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
       - echo $SERVICE_IP
       
@@ -129,10 +129,10 @@ phases:
    #   - export PROMETHEUS_LB=$(kubectl get svc --namespace monitoring prometheus-server -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
       - echo $PROMETHEUS_LB
       
-      - sleep 60
+      #- sleep 60
       
       - echo $PROMETHEUS_LB
-      
+      #
      # - kubectl get pods --namespace monitoring
      # - kubectl get svc --namespace monitoring
       
