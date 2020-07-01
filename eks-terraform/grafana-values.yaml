@@ -361,22 +361,47 @@ dashboardProviders: {}
 ##
 ## dashboards per provider, use provider name as key.
 ##
-dashboards: 
-  default:
+#dashboards: {}
+  # default:
   #   some-dashboard:
   #     json: |
   #       $RAW_JSON
-    custom-dashboard:
-      file: ./kubernetes-cluster-monitoring-via-prometheus_rev1.json
-    prometheus-stats:
-      gnetId: 1621
-      revision: 1
-      datasource: Prometheus
+  #   custom-dashboard:
+  #     file: dashboards/custom-dashboard.json
+  #   prometheus-stats:
+  #     gnetId: 2
+  #     revision: 2
+  #     datasource: Prometheus
   #   local-dashboard:
   #     url: https://example.com/repository/test.json
   #   local-dashboard-base64:
   #     url: https://example.com/repository/test-b64.json
   #     b64content: true
+  
+  dashboards:
+  default:
+    #some-dashboard:
+    #  json: |
+    #    {
+    #      "annotations":
+
+    #      ...
+          # Complete json file here
+    #      ...
+
+    #      "title": "Some Dashboard",
+    #      "uid": "abcd1234",
+    #      "version": 1
+    #    }
+    custom-dashboard:
+      # This is a path to a file inside the dashboards directory inside the chart directory
+      file: dashboards/kubernetes-cluster-monitoring-via-prometheus_rev1.json
+    prometheus-stats:
+      # Ref: https://grafana.com/dashboards/2
+      gnetId: 2
+      revision: 2
+      datasource: Prometheus
+  #  local-dashboard:
 
 ## Reference to external ConfigMap per provider. Use provider name as key and ConfiMap name as value.
 ## A provider dashboards must be defined either by external ConfigMaps or in values.yaml, not in both.
