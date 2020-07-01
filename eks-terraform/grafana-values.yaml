@@ -395,7 +395,7 @@ dashboards:
     #    }
     custom-dashboard:
       # This is a path to a file inside the dashboards directory inside the chart directory
-      file: dashboards/kubernetes-cluster-monitoring-via-prometheus_rev1.json
+      file: dashboards/kubernetes-cluster-monitoring-via-prometheus_rev3.json
    # prometheus-stats:
       # Ref: https://grafana.com/dashboards/2
    #   gnetId: 2
