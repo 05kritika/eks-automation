@@ -23,7 +23,7 @@ if destroy == "True":
 #    mycommands.extend(["apply","-auto-approve"])
 elif apply=="True":
     mycommands.extend(["apply","-auto-approve"])
-else
+else:
     exit
 
 mycommands.extend([ "-var", "region="+myregion , "-var", "prefix="+prefix])
