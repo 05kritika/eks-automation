@@ -366,8 +366,8 @@ dashboards:
   #   some-dashboard:
   #     json: |
   #       $RAW_JSON
-  #   custom-dashboard:
-  #     file: dashboards/custom-dashboard.json
+    custom-dashboard:
+      file: ./kubernetes-cluster-monitoring-via-prometheus_rev1.json
     prometheus-stats:
       gnetId: 1621
       revision: 1
