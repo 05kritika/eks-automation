@@ -532,7 +532,7 @@ nodeExporter:
     loadBalancerIP: ""
     loadBalancerSourceRanges: []
     servicePort: 9100
-    type: LoadBalancer
+    type: ClusterIP
 
 server:
   ## Prometheus server container name
