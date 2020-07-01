@@ -27,26 +27,26 @@ phases:
      # - "chmod +x kops-linux-amd64"
      # - "mv kops-linux-amd64 /usr/local/bin/kops"
       
-      - "curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
-      - "chmod +x kubectl"
-      - "mv ./kubectl /usr/local/bin/kubectl"
+      #- "curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+      #- "chmod +x kubectl"
+      #- "mv ./kubectl /usr/local/bin/kubectl"
       #- "kubectl version"
       
-      - "curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3"
-      - "chmod 700 get_helm.sh"
-      - "./get_helm.sh"
-      - "helm version"
+      #- "curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3"
+      #- "chmod 700 get_helm.sh"
+      #- "./get_helm.sh"
+      #- "helm version"
 
      # - "wget https://storage.googleapis.com/kubernetes-helm/helm-v2.8.2-linux-amd64.tar.gz -O helm.tar.gz; tar -xzf helm.tar.gz"
      # - "chmod +x ./linux-amd64/helm"
      # - "mv ./linux-amd64/helm /usr/local/bin/helm"
        
-      - sudo pip install boto3
-      - wget https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip
+      #- sudo pip install boto3
+      #- wget https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip
       #- wget https://releases.hashicorp.com/terraform/0.10.4/terraform_0.10.4_linux_amd64.zip
-      - unzip terraform_0.12.26_linux_amd64.zip
-      - sudo mv terraform /bin
-      - rm terraform_0.12.26_linux_amd64.zip
+      #- unzip terraform_0.12.26_linux_amd64.zip
+      #- sudo mv terraform /bin
+      #- rm terraform_0.12.26_linux_amd64.zip
       - apt-get update
       - apt-cache search source
       - apt-get install -y curl jq
@@ -75,22 +75,22 @@ phases:
      # - aws sts assume-role --role-arn "arn:aws:iam::847370586410:role/assume-admin-role" --role-session-name AWSCLI-Session
      # - aws sts get-caller-identity
       
-      - . /tmp/aws_cred_export.txt && aws eks --region us-east-1 update-kubeconfig --name $(terraform output cluster_name)
-      - kubectl version
-      - kubectl get nodes
+      #- . /tmp/aws_cred_export.txt && aws eks --region us-east-1 update-kubeconfig --name $(terraform output cluster_name)
+      #- kubectl version
+      #- kubectl get nodes
      
-      - helm repo add stable https://kubernetes-charts.storage.googleapis.com
-      - helm repo update
-      - helm install my-jenkins -f jenkins-values.yaml stable/jenkins --set 'service.type=LoadBalancer'
-      - helm ls
+      #- helm repo add stable https://kubernetes-charts.storage.googleapis.com
+      #- helm repo update
+      #- helm install my-jenkins -f jenkins-values.yaml stable/jenkins --set 'service.type=LoadBalancer'
+      #- helm ls
       
-      - sleep 60
+      #- sleep 60
       
-      - kubectl get pods
-      - kubectl get svc
-      - printf $(kubectl get secret --namespace default my-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+      #- kubectl get pods
+      #- kubectl get svc
+      #- printf $(kubectl get secret --namespace default my-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
       
-      - sleep 30
+      #- sleep 30
       
       #- helm repo add bitnami https://charts.bitnami.com/bitnami
       #- helm install my-tomcat bitnami/tomcat
@@ -98,49 +98,49 @@ phases:
       
      # - sleep 30
       
-      - kubectl get pods
-      - kubectl get svc
+      #- kubectl get pods
+      #- kubectl get svc
      
-      - kubectl create namespace monitoring
-      - helm install -f prometheus-values.yaml prometheus stable/prometheus --namespace monitoring
-      - helm ls --namespace monitoring
+      #- kubectl create namespace monitoring
+      #- helm install -f prometheus-values.yaml prometheus stable/prometheus --namespace monitoring
+      #- helm ls --namespace monitoring
       
-      - kubectl get pods --namespace monitoring
-      - kubectl get svc --namespace monitoring
+      #- kubectl get pods --namespace monitoring
+      #- kubectl get svc --namespace monitoring
       
-      - sleep 60
+      #- sleep 60
       
-      - kubectl get pods --namespace monitoring
-      - kubectl get svc --namespace monitoring
+      #- kubectl get pods --namespace monitoring
+      #- kubectl get svc --namespace monitoring
       
-      - sleep 30
+      #- sleep 30
       
-      - kubectl get pods --namespace monitoring
-      - kubectl get svc --namespace monitoring
+      #- kubectl get pods --namespace monitoring
+      #- kubectl get svc --namespace monitoring
       
-      - PROMETHEUS_IP=$(kubectl get svc prometheus-server --namespace=monitoring -o jsonpath='{..ip}')
-      - echo $PROMETHEUS_IP
+      #- PROMETHEUS_IP=$(kubectl get svc prometheus-server --namespace=monitoring -o jsonpath='{..ip}')
+      #- echo $PROMETHEUS_IP
       
-      - sleep 60
+      #- sleep 60
       
-      - kubectl get pods --namespace monitoring
-      - kubectl get svc --namespace monitoring
+      #- kubectl get pods --namespace monitoring
+      #- kubectl get svc --namespace monitoring
       
-      - sed -i.bak 's/PROMETHEUS_IP/'$PROMETHEUS_IP'/' grafana-values.yaml | helm install -f grafana-values.yaml grafana stable/grafana --namespace monitoring
+      #- sed -i.bak 's/PROMETHEUS_IP/'$PROMETHEUS_IP'/' grafana-values.yaml | helm install -f grafana-values.yaml grafana stable/grafana --namespace monitoring
       
-      - helm ls --namespace monitoring
+      #- helm ls --namespace monitoring
       
-      - kubectl get pods --namespace monitoring
-      - kubectl get svc --namespace monitoring
+      #- kubectl get pods --namespace monitoring
+      #- kubectl get svc --namespace monitoring
       
-      - sleep 60
+      #- sleep 60
       
-      - kubectl get pods --namespace monitoring
-      - kubectl get svc --namespace monitoring
+      #- kubectl get pods --namespace monitoring
+      #- kubectl get svc --namespace monitoring
       
-      - sleep 30
+      #- sleep 30
       
-      - kubectl get pods --namespace monitoring
-      - kubectl get svc --namespace monitoring
+      #- kubectl get pods --namespace monitoring
+      #- kubectl get svc --namespace monitoring
       
       
