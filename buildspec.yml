@@ -124,7 +124,8 @@ phases:
       - export SERVICE_IP=$(kubectl get svc --namespace default my-jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
       - echo $SERVICE_IP
       
-      - export PROMETHEUS_LB=$(kubectl get svc --namespace monitoring prometheus-server -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+      - export PROMETHEUS_LB=$(kubectl get svc --namespace monitoring prometheus-server --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
+    #  - export PROMETHEUS_LB=$(kubectl get svc --namespace monitoring prometheus-server -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
    #   - export PROMETHEUS_LB=$(kubectl get svc --namespace monitoring prometheus-server -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
       - echo $PROMETHEUS_LB
       
