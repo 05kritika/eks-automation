@@ -94,7 +94,7 @@ phases:
       #- kubectl apply -f install/kubernetes/istio-demo.yaml
       #- sleep 1m 
       - kubectl get pods -n istio-system
-      - kubectl label namespace default istio-injection=enable
+     # - kubectl label namespace default istio-injection=enable
       - kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
       - sleep 30s
       - kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
