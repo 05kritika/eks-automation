@@ -104,6 +104,8 @@ phases:
       - pwd
       - cd ..
       - pwd
+      - cd eks-terrafoem
+      - pwd
       
       - helm repo add stable https://kubernetes-charts.storage.googleapis.com
       - helm repo update
