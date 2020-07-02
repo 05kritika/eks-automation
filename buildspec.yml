@@ -177,8 +177,7 @@ phases:
       - sleep 30
       
      # - kubectl get pods --namespace monitoring
-      - kubectl get svc --namespace monitoring
-	  
+      - kubectl get svc --namespace monitoring  
 #------------------------------------------------------------------------	  
 #	  -kubectl get cm/kubernetes-prometheus -n monitoring -o yaml
      
