@@ -102,7 +102,7 @@ phases:
       #- sleep 30
      
       - pwd
-      - cd ..
+     # - cd ..
       - pwd
       #- cd eks-terraform
       #- pwd
