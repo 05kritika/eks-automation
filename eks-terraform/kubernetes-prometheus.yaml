@@ -2,10 +2,12 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: kubernetes-prometheus
+  namespace: monitoring
   labels:
     app: {{ template "grafana.name" . }}
     chart: {{ template "grafana.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 data:
-{{ (.Files.Glob "dashboards/kubernetes-cluster-monitoring-via-prometheus_rev3.json").AsConfig | indent 2 }}
+  {{ (.Files.Glob "dashboards/kubernetes-cluster-monitoring-via-prometheus_rev3.json").AsConfig | indent 2 }}
+
