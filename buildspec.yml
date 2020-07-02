@@ -103,7 +103,7 @@ phases:
      
       - pwd
       - cd eks-terraform
-      -pwd
+      - pwd
       
       - helm repo add stable https://kubernetes-charts.storage.googleapis.com
       - helm repo update
