@@ -81,18 +81,18 @@ phases:
       - kubectl version
       - kubectl get nodes
       
-      - echo "install istio"
+      #- echo "install istio"
       - kubectl get nodes
       - export ISTIO_VERSION=1.4.3
-      - echo "download istio"
-      - curl -L https://git.io/getLatestIstio | ISTIO_VERSION=${ISTIO_VERSION} sh -
+      #- echo "download istio"
+      #- curl -L https://git.io/getLatestIstio | ISTIO_VERSION=${ISTIO_VERSION} sh -
       - echo "change directory"
       - cd istio-${ISTIO_VERSION}
       - export PATH=${PWD}/bin:$PATH
-      - kubectl apply -f install/kubernetes/helm/istio-init/files
-      - sleep 20s
-      - kubectl apply -f install/kubernetes/istio-demo.yaml
-      - sleep 1m 
+      #- kubectl apply -f install/kubernetes/helm/istio-init/files
+      #- sleep 20s
+      #- kubectl apply -f install/kubernetes/istio-demo.yaml
+      #- sleep 1m 
       - kubectl get pods -n istio-system
       - kubectl label namespace default istio-injection=enable
       - kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
