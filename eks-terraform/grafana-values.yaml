@@ -364,9 +364,9 @@ dashboardProviders:
 
 dashboards:
   default:
-  #k8s-dashboard:
-  #    file: dashboards/kubernetes-cluster-monitoring-via-prometheus_rev3.json
-  #    datasource: Prometheus
+    k8s-dashboard:
+      file: dashboards/kubernetes-cluster-monitoring-via-prometheus_rev3.json
+      datasource: Prometheus
 #    k8s-cluster-networking:
 #      file: dashboards/k8s-cluster-networking.json
 #      datasource: Prometheus
@@ -415,8 +415,10 @@ dashboards:
 ##   example-dashboard.json: |
 ##     RAW_JSON
 ##
-dashboardsConfigMaps: {}
-#  default: ""
+dashboardsConfigMaps: 
+  default: "kubernetes-prometheus"
+  
+  
 
 ## Grafana's primary configuration
 ## NOTE: values in map will be converted to ini format
