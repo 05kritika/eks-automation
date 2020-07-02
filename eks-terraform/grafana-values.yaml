@@ -346,14 +346,23 @@ dashboardProviders:
   dashboardproviders.yaml:
     apiVersion: 1
     providers:
-    - name: 'default'
+    - name: 'ds1'
       orgId: 1
       folder: ''
       type: file
       disableDeletion: false
       editable: true
       options:
-        path: /var/lib/grafana/dashboards/default
+        path: /var/lib/grafana/dashboards/ds1
+    
+   # - name: 'ds2'
+   #   orgId: 1
+   #   folder: ''
+   #   type: file
+   #   disableDeletion: false
+   #   editable: true
+   #   options:
+   #     path: /var/lib/grafana/dashboards/ds2
 
 ## Configure grafana dashboard to import
 ## NOTE: To use dashboards you must also enable/configure dashboardProviders
@@ -416,7 +425,8 @@ dashboards:
 ##     RAW_JSON
 ##
 dashboardsConfigMaps: 
-  default: "kubernetes-prometheus"
+  ds1: "kubernetes-prometheus"
+#  ds2: "kubernetes-monitoring"
   
   
 
