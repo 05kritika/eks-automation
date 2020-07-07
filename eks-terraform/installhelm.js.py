@@ -20,7 +20,7 @@ if helm == "yes":
     "helm version"
 else:
      "exit"
-fi
+#fi
 
 #mycommands = ["helm"]
 
