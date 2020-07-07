@@ -3,7 +3,7 @@ import sys
 from subprocess import call
 from subprocess import check_output
 
-if len(sys.argv) != 2:
+if len(sys.argv) != 1:
     print "Error wrong parameter number"
 #    print "Usage: python installhelm.py install"
 #    print "Example: python installhelm.py install"
