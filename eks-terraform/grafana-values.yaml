@@ -310,14 +310,15 @@ plugins: []
 ## ref: http://docs.grafana.org/administration/provisioning/#datasources
 ##
 datasources: {}
-#  datasources.yaml:
-#    apiVersion: 1
-#    datasources:
-#    - name: Prometheus
-#      type: prometheus
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+    - name: Prometheus
+      type: prometheus
 #      url: http://prometheus-prometheus-server
-#      access: proxy
-#      isDefault: true
+      url: http://PROMETHEUS_LB:80
+      access: proxy
+      isDefault: true
 
 ## Configure notifiers
 ## ref: http://docs.grafana.org/administration/provisioning/#alert-notification-channels
@@ -399,6 +400,9 @@ dashboards:
        gnetId: 1860
        revision: 14
        datasource: Prometheus
+     kubernetes-cluster-monitoring:
+       gnetId: 1621
+       revision: 1
 ## Reference to external ConfigMap per provider. Use provider name as key and ConfiMap name as value.
 ## A provider dashboards must be defined either by external ConfigMaps or in values.yaml, not in both.
 ## ConfigMap data example:
