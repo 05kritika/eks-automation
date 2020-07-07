@@ -49,7 +49,7 @@ phases:
    #   - "curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3"
    #   - "chmod 700 get_helm.sh"
    #   - "./get_helm.sh"
-   #   - "helm version"
+      - "helm version"
 
      # - "wget https://storage.googleapis.com/kubernetes-helm/helm-v2.8.2-linux-amd64.tar.gz -O helm.tar.gz; tar -xzf helm.tar.gz"
      # - "chmod +x ./linux-amd64/helm"
