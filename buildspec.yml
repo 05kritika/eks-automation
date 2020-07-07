@@ -33,7 +33,7 @@ phases:
       #- "kubectl version"
       - cd eks-terraform
       - pwd
-      - python installhelm.js.py
+      - python installhelm.js.py $helm
       
      # - |
      #   if [ "${Helm}" == "yes" ]; then
