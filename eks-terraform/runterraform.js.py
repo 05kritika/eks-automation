@@ -16,12 +16,12 @@ Destroy = sys.argv[4]
 
 mycommands = ["terraform"]
 
-if destroy == "True":
+if Destroy == "True":
     mycommands.extend(["destroy","--force"])
   #  exit
 #else 
 #    mycommands.extend(["apply","-auto-approve"])
-elif apply=="True":
+elif Apply=="True":
     mycommands.extend(["apply","-auto-approve"])
 else:
     exit
