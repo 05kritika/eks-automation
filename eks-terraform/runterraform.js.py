@@ -3,7 +3,7 @@ import sys
 from subprocess import call
 from subprocess import check_output
 
-if len(sys.argv) != 5:
+if len(sys.argv) != 4:
     print "Error wrong parameter number"
     print "Usage: python runterraform.py region prefix destroy"
     print "Example: python runterraform.py us-east-1 peppetest1 False"
