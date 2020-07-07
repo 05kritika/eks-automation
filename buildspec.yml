@@ -81,7 +81,7 @@ phases:
     commands:
       #- terraform apply -input=false -auto-approve
       #- terraform destroy -input=false -auto-approve
-      - . /tmp/aws_cred_export.txt &&  python runterraform.js.py $region $applicationname $apply $destroy
+      - . /tmp/aws_cred_export.txt &&  python runterraform.js.py $Region $Applicationname $Apply $Destroy
       - echo "Post apply build"
   post_build:
     commands:
