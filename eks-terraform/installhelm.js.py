@@ -11,7 +11,7 @@ if len(sys.argv) != 1:
 
 #install = sys.argv[1]
 #delete = sys.argv[2]
-helm = sys.argv[1]
+helm = sys.argv[0]
 
 if helm == "yes":
     "curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3"
