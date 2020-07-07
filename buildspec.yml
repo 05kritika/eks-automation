@@ -31,6 +31,8 @@ phases:
 #      - "chmod +x kubectl"
 #      - "mv ./kubectl /usr/local/bin/kubectl"
       #- "kubectl version"
+      - cd eks-terraform
+      - pwd
       - python installhelm.js.py
       
      # - |
