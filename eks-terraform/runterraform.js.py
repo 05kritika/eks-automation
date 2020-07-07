@@ -11,8 +11,8 @@ if len(sys.argv) != 5:
 
 myregion = sys.argv[1]
 prefix = sys.argv[2]
-apply = sys.argv[3]
-destroy = sys.argv[4]
+Apply = sys.argv[3]
+Destroy = sys.argv[4]
 
 mycommands = ["terraform"]
 
