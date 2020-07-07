@@ -3,23 +3,23 @@ import sys
 from subprocess import call
 from subprocess import check_output
 
-if len(sys.argv) != 1:
+#if len(sys.argv) != 1:
     print "Error wrong parameter number"
 #    print "Usage: python installhelm.py install"
 #    print "Example: python installhelm.py install"
-    sys.exit(1)
+#    sys.exit(1)
 
 #install = sys.argv[1]
 #delete = sys.argv[2]
-helm = sys.argv[0]
+#helm = sys.argv[0]
 
-if helm == "yes":
-    "curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3"
-    "chmod 700 get_helm.sh"
-    "./get_helm.sh"
-    "helm version"
-else:
-     "exit"
+#if helm == "yes":
+"curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3"
+"chmod 700 get_helm.sh"
+"./get_helm.sh"
+"helm version"
+#else:
+#     "exit"
 #fi
 
 #mycommands = ["helm"]
