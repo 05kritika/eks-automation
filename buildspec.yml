@@ -126,11 +126,11 @@ phases:
       
       - "helm install my-jenkins -f jenkins-values.yaml stable/jenkins --set 'service.type=LoadBalancer' "
       - "helm ls"
-      - "kubectl get pods"
-      - "kubectl get svc"
-      - "printf $(kubectl get secret --namespace default my-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo "
-      - "export SERVICE_IP=$(kubectl get svc --namespace default my-jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}") "
-      - "echo $SERVICE_IP"
+      - kubectl get pods
+      - kubectl get svc
+      - printf $(kubectl get secret --namespace default my-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo 
+      - export SERVICE_IP=$(kubectl get svc --namespace default my-jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}") 
+      - echo $SERVICE_IP
       
 #      - sleep 30
       
