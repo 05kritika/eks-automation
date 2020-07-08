@@ -10,8 +10,7 @@ phases:
     commands:
       
       - "apt update"
-      - "apt install -y awscli git python3"
-     # - "apt install -y awscli"
+      - "apt install -y awscli git python3
       - "which aws"
       - "aws --version"
       - "curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.16.8/2020-04-16/bin/linux/amd64/aws-iam-authenticator"
