@@ -194,8 +194,8 @@ master:
 
   # LoadBalancerSourcesRange is a list of allowed CIDR values, which are combined with ServicePort to
   # set allowed inbound rules on the security group assigned to the master load balancer
-  loadBalancerSourceRanges:
-  - 0.0.0.0/0
+ # loadBalancerSourceRanges:
+ # - 0.0.0.0/0
   # Optionally assign a known public LB IP
   # loadBalancerIP: 1.2.3.4
   # Optionally configure a JMX port
