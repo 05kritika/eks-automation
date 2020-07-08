@@ -94,8 +94,8 @@ phases:
       
       
       - helm ls
-      - helm delete my-jenkins
-      - helm ls
+     # - helm delete my-jenkins
+     # - helm ls
       
       - helm install my-jenkins -f jenkins-values.yaml stable/jenkins --set 'service.type=NodePort' 
       
