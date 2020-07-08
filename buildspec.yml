@@ -108,6 +108,11 @@ phases:
       
       - helm ls
      # - kubectl get svc --namespace default -w my-jenkins'
-      - export JENKINS_IP=$(kubectl get svc --namespace default my-jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
-      - echo http://$JENKINS_IP:8080/login
+  #    - export JENKINS_IP=$(kubectl get svc --namespace default my-jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
+  #    - echo http://$JENKINS_IP:8080/login
+      
+      - export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services my-jenkins)
+      - export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
+      - echo http://$NODE_IP:$NODE_PORT/login
+      
       
