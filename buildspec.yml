@@ -106,7 +106,8 @@ phases:
       #- export SERVICE_IP=$(kubectl get svc --namespace default my-jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}") 
       #- echo $SERVICE_IP
       
-      - kubectl get svc --namespace default -w my-jenkins'
+      - helm ls
+     # - kubectl get svc --namespace default -w my-jenkins'
       - export JENKINS_IP=$(kubectl get svc --namespace default my-jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
       - echo http://$JENKINS_IP:8080/login
       
