@@ -12,7 +12,7 @@ phases:
       ## INSTALLING AWS CLI, GIT AND PYTHON3 ##
       
       - "apt update"
-      - "apt install -y awscli git python3
+      - "apt install -y awscli git python3"
       - "which aws"
       - "aws --version"
       
