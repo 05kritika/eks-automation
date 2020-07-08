@@ -86,33 +86,3 @@ phases:
       
       ## CONNECTING TO CLUSTER ##
       
-      - ". /tmp/aws_cred_export.txt && aws eks --region us-east-1 update-kubeconfig --name $(terraform output cluster_name)"
-      - "kubectl version"
-      - "kubectl get nodes"
-      
-      - helm repo add stable https://kubernetes-charts.storage.googleapis.com
-      - helm repo update
-      
-      
-      - helm ls
-      - helm delete my-jenkins
-      - helm ls
-      
-      - helm install my-jenkins -f jenkins-values.yaml stable/jenkins --set 'service.type=NodePort' 
-      
-      - kubectl get pods
-      - kubectl get svc
-      - printf $(kubectl get secret --namespace default my-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo 
-      #- export SERVICE_IP=$(kubectl get svc --namespace default my-jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}") 
-      #- echo $SERVICE_IP
-      
-      - helm ls
-     # - kubectl get svc --namespace default -w my-jenkins'
-  #    - export JENKINS_IP=$(kubectl get svc --namespace default my-jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
-  #    - echo http://$JENKINS_IP:8080/login
-      
-      - export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services my-jenkins)
-      - export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
-      - echo http://$NODE_IP:$NODE_PORT/login
-      
-      
