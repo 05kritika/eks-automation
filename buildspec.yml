@@ -48,7 +48,7 @@ phases:
       - "./get_helm.sh"
       - "helm version"
       
-       - "sudo pip install boto3"
+      - "sudo pip install boto3"
 
        ## INSTALLING TERRAFORM ##
 
