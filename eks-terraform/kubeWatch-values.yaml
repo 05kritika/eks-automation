@@ -10,10 +10,10 @@
 slack:
   enabled: true
   # Slack channel to notify
-  channel: "cotainerization-coe"
+  channel: "#coe-channel"
   # Slack bots token. Create using: https://my.slack.com/services/new/bot
   # and invite the bot to your channel using: /join @botname
-  token: "xoxb-1239886434850-1225193682759-UNduYhULIL80JuWwjZWFH5Yx"
+  token: "xoxb-1239886434850-1238671482101-IAqlk55uZ5fZu5v2ExeSvIb1"
 
 hipchat:
   enabled: false
