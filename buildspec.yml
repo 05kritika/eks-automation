@@ -89,6 +89,18 @@ phases:
       - ". /tmp/aws_cred_export.txt && aws eks --region us-east-1 update-kubeconfig --name $(terraform output cluster_name)"
       - "kubectl version"
       - "kubectl get nodes"
+      
+         ## ADDING HELM BITNAMI REPO ##
+      
+      - helm repo add bitnami https://charts.bitnami.com/bitnami
+      - helm repo update
+      
+      ## INSTALLING KUBE-WATCH
+      
+      #- helm install --name kubewatch bitnami/kubewatch --set='rbac.create=true,slack.channel=#YOUR_CHANNEL,slack.token=xoxb-YOUR_TOKEN,resourcesToWatch.pod=true,resourcesToWatch.daemonset=true'
+       - helm install --name my-kubewatch -f kubeWatch-values.yaml bitnami/kubewatch 
+       - helm ls
+       - kuectl get all
   
          ## ISTIO INSTALLATION  ##
       
@@ -134,10 +146,7 @@ phases:
       
 #      - sleep 30
       
-      ## ADDING HELM BITNAMI REPO ##
-      
-      - helm repo add bitnami https://charts.bitnami.com/bitnami
-      - helm repo update
+   
       
       ## INSTALLING TOMCAT ##
       
