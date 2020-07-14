@@ -98,9 +98,9 @@ phases:
       ## INSTALLING KUBE-WATCH
       
       #- helm install --name kubewatch bitnami/kubewatch --set='rbac.create=true,slack.channel=#YOUR_CHANNEL,slack.token=xoxb-YOUR_TOKEN,resourcesToWatch.pod=true,resourcesToWatch.daemonset=true'
-      - helm install my-kubewatch -f kubeWatch-values.yaml bitnami/kubewatch 
+   #   - helm install my-kubewatch -f kubeWatch-values.yaml bitnami/kubewatch 
       - helm ls
-      - kuectl get all
+      - kubectl get all
   
          ## ISTIO INSTALLATION  ##
       
