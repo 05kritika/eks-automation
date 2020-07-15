@@ -108,32 +108,32 @@ phases:
       
       ## INSTALLING  KUBE-SCAN (RISK ASSESSMENT TOOL)
       
-      - kubectl apply -f https://raw.githubusercontent.com/octarinesec/kube-scan/master/kube-scan-lb.yaml
+   #   - kubectl apply -f https://raw.githubusercontent.com/octarinesec/kube-scan/master/kube-scan-lb.yaml
       -  kubectl get all -n kube-scan
      
           ## ISTIO INSTALLATION  ##
       
-      - echo 'Install Istio' 
-      - export ISTIO_VERSION=1.4.3
-      - echo 'Download Istio' 
-      - curl -L https://git.io/getLatestIstio | ISTIO_VERSION=${ISTIO_VERSION} sh - 
-      - cd istio-${ISTIO_VERSION}
-      - pwd
-      - export PATH=${PWD}/bin:$PATH
-      - kubectl apply -f install/kubernetes/helm/istio-init/files
-      - sleep 20s
-      - kubectl apply -f install/kubernetes/istio-demo.yaml
-      - sleep 1m 
+  #    - echo 'Install Istio' 
+  #    - export ISTIO_VERSION=1.4.3
+  #    - echo 'Download Istio' 
+  #    - curl -L https://git.io/getLatestIstio | ISTIO_VERSION=${ISTIO_VERSION} sh - 
+  #    - cd istio-${ISTIO_VERSION}
+  #    - pwd
+  #    - export PATH=${PWD}/bin:$PATH
+  #    - kubectl apply -f install/kubernetes/helm/istio-init/files
+  #    - sleep 20s
+  #    - kubectl apply -f install/kubernetes/istio-demo.yaml
+  #    - sleep 1m 
       - kubectl get pods -n istio-system
-      - kubectl label namespace default istio-injection=enable
-      - kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
-      - sleep 30s
-      - kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
+  #    - kubectl label namespace default istio-injection=enable
+  #    - kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
+  #    - sleep 30s
+  #    - kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
       - kubectl get svc istio-ingressgateway -n istio-system 
-      - sleep 30 
+  #    - sleep 30 
      
       - pwd
-      - cd ..
+  #    - cd ..
       - pwd
       #- cd eks-terraform
       #- pwd
