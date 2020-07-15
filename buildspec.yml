@@ -90,10 +90,12 @@ phases:
       - kubectl version
       - kubectl get nodes
       
+      - 
+      
      ## ADDING HELM BITNAMI REPO ##
       
-  #    - helm repo add bitnami https://charts.bitnami.com/bitnami
-  #    - helm repo update
+      - helm repo add bitnami https://charts.bitnami.com/bitnami
+      - helm repo update
             
       ## INSTALLING KUBE-WATCH	
 
@@ -104,13 +106,10 @@ phases:
       
      # - helm install my-release bitnami/kubewatch --set=slack.channel="#bots",slack.token="XXXX-XXXX-XXXX"
       
-      ## INSTALLING TOMCAT ##
+      ## INSTALLING  KUBE-SCAN (RISK ASSESSMENT TOOL)
       
-     # - helm install my-tomcat bitnami/tomcat
-     # - helm ls
-      #- "sleep 30"      
-     # - kubectl get pods
-     # - kubectl get svc
+      - kubectl apply -f https://raw.githubusercontent.com/octarinesec/kube-scan/master/kube-scan-lb.yaml
+      -  kubectl get all -n kube-scan
      
           ## ISTIO INSTALLATION  ##
       
