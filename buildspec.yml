@@ -108,7 +108,7 @@ phases:
       
       ## INSTALLING  KUBE-SCAN (RISK ASSESSMENT TOOL)
       
-   #   - kubectl apply -f https://raw.githubusercontent.com/octarinesec/kube-scan/master/kube-scan-lb.yaml
+      - kubectl apply -f https://raw.githubusercontent.com/octarinesec/kube-scan/master/kube-scan-lb.yaml
       -  kubectl get all -n kube-scan
      
           ## ISTIO INSTALLATION  ##
