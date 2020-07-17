@@ -113,27 +113,27 @@ phases:
      
           ## ISTIO INSTALLATION  ##
       
-  #    - echo 'Install Istio' 
-  #    - export ISTIO_VERSION=1.4.3
-  #    - echo 'Download Istio' 
-  #    - curl -L https://git.io/getLatestIstio | ISTIO_VERSION=${ISTIO_VERSION} sh - 
-  #    - cd istio-${ISTIO_VERSION}
-  #    - pwd
-  #    - export PATH=${PWD}/bin:$PATH
-  #    - kubectl apply -f install/kubernetes/helm/istio-init/files
-  #    - sleep 20s
-  #    - kubectl apply -f install/kubernetes/istio-demo.yaml
-  #    - sleep 1m 
+      - echo 'Install Istio' 
+      - export ISTIO_VERSION=1.4.3
+      - echo 'Download Istio' 
+      - curl -L https://git.io/getLatestIstio | ISTIO_VERSION=${ISTIO_VERSION} sh - 
+      - cd istio-${ISTIO_VERSION}
+      - pwd
+      - export PATH=${PWD}/bin:$PATH
+      - kubectl apply -f install/kubernetes/helm/istio-init/files
+      - sleep 20s
+      - kubectl apply -f install/kubernetes/istio-demo.yaml
+      - sleep 1m 
       - kubectl get pods -n istio-system
-  #    - kubectl label namespace default istio-injection=enable
-  #    - kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
-  #    - sleep 30s
-  #    - kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
+      - kubectl label namespace default istio-injection=enable
+      - kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
+      - sleep 30s
+      - kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
       - kubectl get svc istio-ingressgateway -n istio-system 
   #    - sleep 30 
      
       - pwd
-  #    - cd ..
+      - cd ..
       - pwd
       #- cd eks-terraform
       #- pwd
@@ -145,11 +145,11 @@ phases:
       
       ## INSTALLING JENKINS ##
       
-#      - helm install my-jenkins -f jenkins-values.yaml stable/jenkins --set 'service.type=LoadBalancer' 
+      - helm install my-jenkins -f jenkins-values.yaml stable/jenkins --set 'service.type=LoadBalancer' 
       - helm ls
       - kubectl get pods
       - kubectl get svc
-      - printf $(kubectl get secret --namespace default my-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo 
+#      - printf $(kubectl get secret --namespace default my-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo 
 #      - export SERVICE_IP=$(kubectl get svc --namespace default my-jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}") 
 #      - echo $SERVICE_IP
       
