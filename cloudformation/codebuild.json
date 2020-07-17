@@ -6,7 +6,7 @@
         "DataPartName" : {
           "Description": "the data part name as appear in the cloudformation stack name",
           "Type": "String",
-          "Default" : "eks-kritika"
+          "Default" : "coe-eks-automation"
         }
   },
   "Resources" : {
@@ -56,17 +56,18 @@
             "ComputeType": "BUILD_GENERAL1_SMALL",
             "Image": "aws/codebuild/python:2.7.12",
             "EnvironmentVariables": [
-              { "Name": "datapart", "Value": { "Ref" : "DataPartName"}  },
-              { "Name": "region", "Value":  { "Ref" : "AWS::Region" } },
-              { "Name": "applicationname", "Value": { "Ref" : "AWS::StackName" }  },
-              { "Name": "destroy" , "Value": "False" }
+              { "Name": "Datapart", "Value": { "Ref" : "DataPartName"}  },
+              { "Name": "Region", "Value":  { "Ref" : "AWS::Region" } },
+              { "Name": "Applicationname", "Value": { "Ref" : "AWS::StackName" }  },
+              { "Name": "Destroy" , "Value": "False" },
+	      { "Name": "Apply", "Value": "False" }		  
             ]
           },
           "Source": {
             "Location": "https://github.com/05kritika/eks-automation.git",
             "Type": "GITHUB"
           },
-          "TimeoutInMinutes": 10,
+          "TimeoutInMinutes": 60,
           "Tags": [ {  "Key": "Project", "Value": "Run Terraform From CodeBuild"  } ]
         }
       }
