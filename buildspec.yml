@@ -113,27 +113,27 @@ phases:
      
           ## ISTIO INSTALLATION  ##
       
-      - echo 'Install Istio' 
-      - export ISTIO_VERSION=1.4.3
-      - echo 'Download Istio' 
-      - curl -L https://git.io/getLatestIstio | ISTIO_VERSION=${ISTIO_VERSION} sh - 
-      - cd istio-${ISTIO_VERSION}
+#      - echo 'Install Istio' 
+#      - export ISTIO_VERSION=1.4.3
+#      - echo 'Download Istio' 
+#      - curl -L https://git.io/getLatestIstio | ISTIO_VERSION=${ISTIO_VERSION} sh - 
+#      - cd istio-${ISTIO_VERSION}
       - pwd
-      - export PATH=${PWD}/bin:$PATH
-      - kubectl apply -f install/kubernetes/helm/istio-init/files
-      - sleep 20s
-      - kubectl apply -f install/kubernetes/istio-demo.yaml
-      - sleep 1m 
+#      - export PATH=${PWD}/bin:$PATH
+#      - kubectl apply -f install/kubernetes/helm/istio-init/files
+#      - sleep 20s
+#      - kubectl apply -f install/kubernetes/istio-demo.yaml
+#      - sleep 1m 
       - kubectl get pods -n istio-system
-      - kubectl label namespace default istio-injection=enable
-      - kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
-      - sleep 30s
-      - kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
+#      - kubectl label namespace default istio-injection=enable
+#      - kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
+#      - sleep 30s
+#      - kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
       - kubectl get svc istio-ingressgateway -n istio-system 
   #    - sleep 30 
      
       - pwd
-      - cd ..
+#      - cd ..
       - pwd
       #- cd eks-terraform
       #- pwd
@@ -145,7 +145,7 @@ phases:
       
       ## INSTALLING JENKINS ##
       
-      - helm install my-jenkins -f jenkins-values.yaml stable/jenkins --set 'service.type=LoadBalancer' 
+ #     - helm install my-jenkins -f jenkins-values.yaml stable/jenkins --set 'service.type=LoadBalancer' 
       - helm ls
       - kubectl get pods
       - kubectl get svc
@@ -159,7 +159,7 @@ phases:
       
       ## INSTALLING TOMCAT ##
       
-      - helm install my-tomcat bitnami/tomcat
+#      - helm install my-tomcat bitnami/tomcat
       - helm ls
       #- "sleep 30"      
       - kubectl get pods
@@ -167,12 +167,12 @@ phases:
      
       ## INSTALLING PROMETHEUS AND ITS METRICS EXPORTERS ##
      
-      - kubectl create namespace monitoring
-      - helm install -f prometheus-values.yaml prometheus stable/prometheus --namespace monitoring
+ #     - kubectl create namespace monitoring
+ #     - helm install -f prometheus-values.yaml prometheus stable/prometheus --namespace monitoring
       - helm ls --namespace monitoring
       - kubectl get pods --namespace monitoring
       - kubectl get svc --namespace monitoring
-      - sleep 60
+#      - sleep 60
      # - kubectl get pods --namespace monitoring
       - kubectl get svc --namespace monitoring    
       - sleep 60
